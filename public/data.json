@@ -1,0 +1,17 @@
+{
+  "user" : {
+  	"1" : {
+  		"name" : "Joyce Halem",
+	    "telephone" : "+256773672552"
+  	},
+  	"2" : {
+  		"name" : "Jerry Edebua",
+	    "telephone" : "+256789901252"
+  	}
+  },
+  "product" : {
+  	"1" : {
+  		"name" : "Men's classic"
+  	}
+  }
+}

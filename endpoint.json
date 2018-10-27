@@ -1,0 +1,39 @@
+{
+  "entity" : {
+  	"1" : {
+  		"name" : "Avalon Shoes",
+      "stock" : true, "labourers" : true, "lat" : 0, "lon" : 0
+  	}
+  },
+  "expense_on" : {
+    "1" : {
+      "name" : "Purchase", "generated" : true
+    },
+    "2" : {
+      "name" : "Labour", "generated" : true
+    },
+    "3" : {
+      "name" : "Rent", "generated" : false
+    }
+  },
+  "expense" : {
+    "1" : {
+      "i1" : {
+        "on" : "1",
+        "amount" : "10000",
+        "date_incurred" : 1002190929921
+      },
+      "i2" : {
+        "on" : "2",
+        "amount" : "3000",
+        "date_incurred" : 1002190929921
+      }
+    }
+  },
+  "entity_expense" : {
+    "1" : {
+      "1" : true,
+      "2" : true
+    }
+  }
+}
