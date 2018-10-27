@@ -6,6 +6,6 @@ Businesses can use Mindar to keep track of profit margins. Individuals can also 
 The project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 To get up and running,
-Clone the repo
-<br>Run 'npm install' then 'npm start'
-<br>The project can then be accessed at http://localhost:3000/
+<br>clone the repo
+<br>run npm install then npm start
+<br>access app at at http://localhost:3000/
