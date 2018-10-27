@@ -7,5 +7,5 @@ The project was bootstrapped with [Create React App](https://github.com/facebook
 
 To get up and running,
 Clone the repo
-Run 'npm install' then 'npm start'
-The project can then be accessed at http://localhost:3000/
+<br>Run 'npm install' then 'npm start'
+<br>The project can then be accessed at http://localhost:3000/
