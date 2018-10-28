@@ -8,10 +8,10 @@ Checkout out the demo on [Heroku](https://mindar-demo.herokuapp.com/).
 The project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 *To get up and running*,
-<br>clone the repo
-<br>run `npm install` then `npm start` then access the app at *`http://localhost:3000/`*
+<br>Clone the repo.
+<br>Run `npm install` then `npm start` then access the app at `http://localhost:3000/`.
 
 ### Making fixes
-create a new branch using the format, `fix-'feature-name or bug-name'`
-<br>push your branch to remote
-<br>create pull request to merge changes to master
+Create a new branch using the format, `fix-'feature-name or bug-name'`.
+<br>Make your changes to your branch then push it to remote.
+<br>Create pull request to merge changes to master.
