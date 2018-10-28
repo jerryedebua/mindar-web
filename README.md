@@ -13,5 +13,5 @@ The project was bootstrapped with [Create React App](https://github.com/facebook
 
 ### Making fixes
 Create a new branch using the format, `fix-'feature-name or bug-name'`.
-<br>Make your changes to your branch then push it to remote.
+<br>Make required changes to your branch then push it to remote.
 <br>Create pull request to merge changes to master.
