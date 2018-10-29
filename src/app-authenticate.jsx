@@ -4,6 +4,8 @@ import {connect} from 'react-redux';
 import action from './actions/signup';
 
 import Paper from 'material-ui/Paper';
+import Typography from '@material-ui/core/Typography';
+import Divider from '@material-ui/core/Divider';
 import FlatButton from 'material-ui/FlatButton';
 import Checkbox from 'material-ui/Checkbox';
 import Toggle from 'material-ui/Toggle';
@@ -11,14 +13,15 @@ import Toggle from 'material-ui/Toggle';
 import { TextValidator, ValidatorForm } from 'react-material-ui-form-validator';
 
 const styles = {
-  center : {
-    display: 'flex',
-    flexWrap: 'wrap',
-    justifyContent: 'space-top', // space-around
+  root : {
+    margin: '40px',
+    minHeight: '300px',
+  },
+  divider : {
+    margin: '15px 0',
   },
   paper : {
     padding: 20,
-    margin: '80px 0 0 0',
   },
   radioButton: {
     marginBottom: 16,
@@ -27,72 +30,25 @@ const styles = {
 
 class AppAuthenticate extends React.Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      authenticate: true, authenticate_fresh: true,
-      phone: '', code: '', name: '', stock: false, labourers: false,
-      finished: false, stepIndex: 0,
-    };
-    this.handleInputChange = this.handleInputChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.updateCheck = this.updateCheck.bind(this);
-  }
-
-  updateCheck() {
-    this.setState((oldState) => {
-      return {
-        checked: !oldState.checked,
-      };
-    });
-  }
-
-  handleNext = () => {
-    const {stepIndex} = this.state;
-    this.setState({
-      stepIndex: stepIndex + 1,
-      finished: stepIndex >= 2,
-    });
-  };
-
-  handlePrev = () => {
-    const {stepIndex} = this.state;
-    if (stepIndex > 0) {
-      this.setState({stepIndex: stepIndex - 1});
-    }
-  };
-
-  handleInputChange(event) {
-    const target = event.target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
-    const name = target.name;
-    this.setState({
-      [name]: value
-    });
-  }
-
-  handleSubmit(event) {
-    event.preventDefault();
-
-    if (this.state.authenticate_fresh) {
-      this.setState({ authenticate_fresh: false }); return;
-    }
-
-    if (this.state.authenticate) {
-      this.setState({ authenticate: false }); return;
-    }
-
-    this.props.action();
-
-  }
-
   render() {
     return (
-      <div className="row">
-        <div className="col-sm-6" style={{ border: '1px solid red;'}}></div>
-        <div className="col-sm-6" style={styles.center}>
-          <Paper style={styles.paper} zDepth={1}>
-            <ValidatorForm
+      <div className="row" style={styles.root}>
+        <Paper className="col-xs-12 col-sm-6" style={styles.paper} zDepth={3}>
+          <Typography variant="h5" component="h3">
+            Mindar
+          </Typography>
+          <Divider style={styles.divider}/>
+          <Typography component="p">
+            Mindar is a great app for keeping income and expenditure records.<br/>
+            Entities can use Mindar to keep track of profit margins. Individuals can also use Mindar to keep their savings in check.
+          </Typography>
+        </Paper>
+        <div className="col-xs-12 col-sm-4" style={{marginLeft:20}}>
+          <Paper style={styles.paper} zDepth={3}>
+          <Typography variant="h6" component="h3">
+            Sign Up
+          </Typography>
+          <ValidatorForm
               ref="form"
               onSubmit={this.handleSubmit}
               onError={errors => console.log('errors occured')}>
@@ -166,6 +122,65 @@ class AppAuthenticate extends React.Component {
         </div>
       </div>
     );
+  }
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      authenticate: true, authenticate_fresh: true,
+      phone: '', code: '', name: '', stock: false, labourers: false,
+      finished: false, stepIndex: 0,
+    };
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.updateCheck = this.updateCheck.bind(this);
+  }
+
+  updateCheck() {
+    this.setState((oldState) => {
+      return {
+        checked: !oldState.checked,
+      };
+    });
+  }
+
+  handleNext = () => {
+    const {stepIndex} = this.state;
+    this.setState({
+      stepIndex: stepIndex + 1,
+      finished: stepIndex >= 2,
+    });
+  };
+
+  handlePrev = () => {
+    const {stepIndex} = this.state;
+    if (stepIndex > 0) {
+      this.setState({stepIndex: stepIndex - 1});
+    }
+  };
+
+  handleInputChange(event) {
+    const target = event.target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const name = target.name;
+    this.setState({
+      [name]: value
+    });
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+
+    if (this.state.authenticate_fresh) {
+      this.setState({ authenticate_fresh: false }); return;
+    }
+
+    if (this.state.authenticate) {
+      this.setState({ authenticate: false }); return;
+    }
+
+    this.props.action();
+
   }
 
 }
