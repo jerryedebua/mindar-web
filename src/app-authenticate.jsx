@@ -38,6 +38,7 @@ class AppAuthenticate extends React.Component {
             Mindar
           </Typography>
           <Divider style={styles.divider}/>
+          <Typography variant="h6">Welcome.</Typography>
           <Typography component="p">
             Mindar is a great app for keeping income and expenditure records.<br/>
             Entities can use Mindar to keep track of profit margins. Individuals can also use Mindar to keep their savings in check.
