@@ -9,9 +9,9 @@ The project was bootstrapped with [Create React App](https://github.com/facebook
 
 *To get up and running*,
 <br>Clone the repo.
-<br>Run `npm install` then `npm start` then access the app at `http://localhost:3000/`.
+<br>Run `npm install` then `npm start` then access the app at `localhost:3000/`.
 
 ### Making fixes
-Create a new branch using the format, `fix-'feature-name or bug-name'`.
-<br>Make required changes to your branch then push it to remote.
-<br>Create pull request to merge changes to master.
+- Create a new branch using the format, `fix-'feature-name or bug-name'`.
+- Make required changes to your branch then push it to remote.
+- Create pull request to merge changes to master.
