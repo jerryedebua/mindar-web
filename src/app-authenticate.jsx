@@ -14,7 +14,7 @@ const styles = {
   center : {
     display: 'flex',
     flexWrap: 'wrap',
-    justifyContent: 'space-around',
+    justifyContent: 'space-top', // space-around
   },
   paper : {
     padding: 20,
@@ -88,79 +88,82 @@ class AppAuthenticate extends React.Component {
 
   render() {
     return (
-      <div style={styles.center}>
-        <Paper style={styles.paper} zDepth={1}>
-          <ValidatorForm
-            ref="form"
-            onSubmit={this.handleSubmit}
-            onError={errors => console.log('errors occured')}>
-            
-            {/* phone */}
-            { this.state.authenticate ? 
-              <div>
-                { this.state.authenticate_fresh ? 
-                  <div>
-                    <TextValidator name="phone"
-                      hintText="This will identify your entity"
-                      floatingLabelText="Phone number"
+      <div className="row">
+        <div className="col-sm-6" style={{ border: '1px solid red;'}}></div>
+        <div className="col-sm-6" style={styles.center}>
+          <Paper style={styles.paper} zDepth={1}>
+            <ValidatorForm
+              ref="form"
+              onSubmit={this.handleSubmit}
+              onError={errors => console.log('errors occured')}>
+              
+              {/* phone */}
+              { this.state.authenticate ? 
+                <div>
+                  { this.state.authenticate_fresh ? 
+                    <div>
+                      <TextValidator name="phone"
+                        hintText="This will identify your entity"
+                        floatingLabelText="Phone number"
+                        autoComplete={'off'}
+                        onChange={this.handleInputChange}
+                        errorMessages={['This field is required', 'Type valid phone number', 'Type valid phone number']}
+                        validators={['required', 'minNumber:0', 'matchRegexp:^[0-9]*$']}
+                        value={this.state.phone}
+                      />
+                      <div id="recaptcha"></div>
+                    </div> :
+                    <TextValidator name="code" style={{ display:'block' }}
+                      hintText="Type verification code"
+                      floatingLabelText="Verification code"
                       autoComplete={'off'}
                       onChange={this.handleInputChange}
-                      errorMessages={['This field is required', 'Type valid phone number', 'Type valid phone number']}
+                      errorMessages={['This field is required', 'Type valid verification code', 'Type valid verification code']}
                       validators={['required', 'minNumber:0', 'matchRegexp:^[0-9]*$']}
-                      value={this.state.phone}
+                      value={this.state.code}
                     />
-                    <div id="recaptcha"></div>
-                  </div> :
-                  <TextValidator name="code" style={{ display:'block' }}
-                    hintText="Type verification code"
-                    floatingLabelText="Verification code"
+                  }
+                </div> :
+                <div>
+                  <TextValidator name="name"
+                    hintText="Type your entity name"
+                    floatingLabelText="Entity name"
                     autoComplete={'off'}
                     onChange={this.handleInputChange}
-                    errorMessages={['This field is required', 'Type valid verification code', 'Type valid verification code']}
-                    validators={['required', 'minNumber:0', 'matchRegexp:^[0-9]*$']}
-                    value={this.state.code}
+                    errorMessages={['This field is required']}
+                    value={this.state.name}
                   />
-                }
-              </div> :
-              <div>
-                <TextValidator name="name"
-                  hintText="Type your entity name"
-                  floatingLabelText="Entity name"
-                  autoComplete={'off'}
-                  onChange={this.handleInputChange}
-                  errorMessages={['This field is required']}
-                  value={this.state.name}
-                />
-                <Checkbox
-                  name="stock"
-                  label="I sell products"
-                  checked={this.state.stock}
-                  onCheck={this.updateCheck}
-                  style={{ margin: '15px 0 15px 0' }}
-                />
-                <Checkbox
-                  name="labourers"
-                  label="I offer services"
-                  checked={this.state.labourers}
-                  onCheck={this.updateCheck}
-                  style={{ margin: '0 0 15px 0' }}
-                />
-                <Toggle
-                  label="I employ other people"
-                  style={{ margin: '0 0 15px 0' }}
+                  <Checkbox
+                    name="stock"
+                    label="I sell products"
+                    checked={this.state.stock}
+                    onCheck={this.updateCheck}
+                    style={{ margin: '15px 0 15px 0' }}
+                  />
+                  <Checkbox
+                    name="labourers"
+                    label="I offer services"
+                    checked={this.state.labourers}
+                    onCheck={this.updateCheck}
+                    style={{ margin: '0 0 15px 0' }}
+                  />
+                  <Toggle
+                    label="I employ other people"
+                    style={{ margin: '0 0 15px 0' }}
+                  />
+                </div>
+              }
+              <div style={{width: '100%', textAlign: 'right', marginTop: 10}}>
+                <FlatButton
+                  label="Submit"
+                  primary={true}
+                  keyboardFocused={true}
+                  type="submit"
                 />
               </div>
-            }
-            <div style={{width: '100%', textAlign: 'right', marginTop: 10}}>
-              <FlatButton
-                label="Submit"
-                primary={true}
-                keyboardFocused={true}
-                type="submit"
-              />
-            </div>
-          </ValidatorForm>
-        </Paper>
+            </ValidatorForm>
+          </Paper>
+        </div>
       </div>
     );
   }
